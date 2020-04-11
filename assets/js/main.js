@@ -93,6 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
         ) {
           this.article.innerHTML = "";
           this.getTutorialData();
+          window.scrollTo(0, 0);
         } else {
           window.setTimeout(() => {
             this.article.classList.remove("fade");
@@ -178,7 +179,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const descriptionTitle = document.createElement("h6");
       descriptionTitle.classList.add("article__descriptionTitle");
-      descriptionTitle.innerText = "Project Description";
+      descriptionTitle.innerText = "Intro";
       descriptionWrapper.appendChild(descriptionTitle);
 
       const description = document.createElement("div");

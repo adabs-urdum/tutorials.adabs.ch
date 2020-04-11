@@ -182,6 +182,11 @@ canvas {
     padding: $BS * 36 $BS * 100 $BS * 36;
   }
 
+  .code {
+    @include bs-font-size(26);
+    padding: $BS * 10;
+  }
+
   h1 {
     @include bs-font-size(144);
   }
@@ -255,6 +260,7 @@ canvas {
   }
 
   .code {
+    @include bs-font-size(52);
     padding: $BS * 16 $BS * 20 $BS * 20;
   }
 }
