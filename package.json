@@ -1,0 +1,43 @@
+{
+  "name": "VanillaSetup",
+  "version": "2.0.1",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adabs-urdum/vanilla_setup"
+  },
+  "main": "index.js",
+  "scripts": {
+    "build:setup": "mkdir -p dist/css && mkdir -p dist/js && mkdir -p assets/styles && mkdir -p assets/js && touch assets/styles/variables.scss && touch assets/styles/main.scss && touch assets/js/main.js",
+    "build:cssdev": "node-sass assets/styles/main.scss --output-style expanded --source-map dist/css/styles.min.css.map --error-bell dist/css/styles.min.css",
+    "build:cssprod": "node-sass assets/styles/main.scss --output-style compressed dist/css/styles.min.css",
+    "build:jsprod": "webpack --mode production ./assets/js/main.js --presets --output ./dist/js/functions.min.js --module-bind js=babel-loader",
+    "build:jsdev": "esbuild --bundle ./assets/js/main.js --outfile=./dist/js/functions.min.js --sourcemap",
+    "watch:cssdev": "onchange 'assets/styles/**/*.scss' -- npm run build:cssdev",
+    "watch:jsdev": "onchange 'assets/js/**/*.js' -- npm run build:jsdev",
+    "serve": "browser-sync start --proxy ${url} --files 'dist/**/*.css, dist/**/*.js' -w",
+    "postinstall": "npm run build:setup",
+    "eject": "react-scripts eject",
+    "build": "npm run build:cssprod && npm run build:jsprod",
+    "watch": "parallelshell 'npm run watch:cssdev' 'npm run watch:jsdev' 'npm run serve'"
+  },
+  "author": "Cyrill Lehmann",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-polyfill": "latest",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/plugin-proposal-class-properties": "latest",
+    "@babel/preset-react": "latest",
+    "babel-loader": "^8.0.5",
+    "webpack": "^4.29.0",
+    "webpack-cli": "^3.2.1",
+    "parallelshell": "3.0.1",
+    "node-sass": "latest",
+    "browser-sync": "latest",
+    "package.json": "latest",
+    "onchange": "latest",
+    "esbuild-darwin-64": "latest",
+    "axios": "latest"
+  }
+}

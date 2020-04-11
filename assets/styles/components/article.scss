@@ -1,0 +1,322 @@
+.article {
+  display: block;
+
+  &__textWrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__title {
+    width: 100%;
+    margin-bottom: $BS * 64;
+  }
+
+  &__descriptionWrapper {
+    width: $BS * 600;
+  }
+
+  &__description {
+    width: $BS * 600;
+
+    p {
+      margin-bottom: $BS * 16;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__canvas {
+    width: $BS * 768;
+    background-color: $Black;
+  }
+
+  &__upper {
+    width: $BS * 1024;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: $BS * 128;
+  }
+
+  &__steps {
+    display: flex;
+    flex-wrap: nowrap;
+    width: $BS * 1320;
+  }
+
+  &__step {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 $BS * 32;
+  }
+
+  &__stepWrapper {
+    position: relative;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    transition: transform 0.5s ease-out, opacity 0.6s ease-out;
+    opacity: 0.6;
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    &.active {
+      opacity: 1;
+
+      &:after {
+        pointer-events: none;
+      }
+    }
+  }
+
+  &__stepTitle {
+    width: 100%;
+    line-height: 100%;
+    margin-bottom: $BS * 32;
+  }
+
+  &__stepDescription {
+    position: relative;
+    width: $BS * 450;
+    padding: $BS * 20;
+    border: $BS solid $YellowDark;
+    transform: translateX($BS);
+    background: $YellowLight;
+    @include bs-font-size(16);
+
+    .button {
+      margin-top: $BS * 32;
+    }
+
+    ul,
+    p {
+      margin-bottom: $BS * 16;
+    }
+
+    li {
+      position: relative;
+      padding-left: $BS * 24;
+      margin-bottom: $BS * 16;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: $BS * 24;
+        height: 100%;
+        border: solid $YellowDark $BS;
+        border-right: none;
+      }
+    }
+  }
+
+  &__descriptionTitle {
+    margin-bottom: $BS * 16;
+  }
+
+  &__stepsTitle {
+    margin-bottom: $BS * 16;
+  }
+
+  &__stepsList {
+    border: $BS solid $YellowDark;
+  }
+
+  &__stepButton {
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+    padding: $BS * 4 $BS * 16 $BS * 3;
+    transition: background-color 0.3s ease-out, color 0.3s ease-out;
+
+    &:hover {
+      background-color: $YellowDark;
+    }
+
+    &.active {
+      background: $Black;
+      color: $YellowLight;
+    }
+  }
+
+  &__previousStep,
+  &__nextStep {
+    transition: 0.3s ease-out color;
+    color: $YellowDark;
+    left: $BS * 20;
+
+    &:hover {
+      color: $Black;
+    }
+  }
+
+  &__previousStep {
+    position: absolute;
+    top: 0;
+    transform: translateY(-150%);
+  }
+
+  &__nextStep {
+    position: absolute;
+    bottom: 0;
+    transform: translateY(150%);
+  }
+
+  &__codepen {
+    position: relative;
+
+    .cp_embed_wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      iframe {
+        height: 100%;
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__image {
+    width: $BS * 768;
+  }
+
+  &__stepTitle {
+    margin-bottom: $BS * 16;
+  }
+
+  &.hidden {
+    display: none;
+  }
+}
+
+@media #{$BreakpointS} {
+  .article {
+    &__upper {
+      width: 100%;
+    }
+
+    &__title {
+      margin-bottom: $BS * 128;
+    }
+
+    &__descriptionWrapper {
+      flex: 1;
+      margin-right: $BS * 64;
+    }
+
+    &__description {
+      width: auto;
+
+      p {
+        margin-bottom: $BS * 32;
+      }
+    }
+
+    &__stepButton {
+      padding: $BS * 8 $BS * 32 $BS * 6;
+      transition: background-color 0.3s ease-out, color 0.3s ease-out;
+    }
+
+    &__steps {
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    &__step {
+      flex-direction: column-reverse;
+      margin: 0;
+      width: 100%;
+    }
+
+    &__stepWrapper {
+      width: 100%;
+    }
+
+    &__stepDescription {
+      position: relative;
+      width: 100%;
+      padding: $BS * 40;
+      border: $BS solid $YellowDark;
+      transform: translateX($BS);
+      background: $YellowLight;
+      @include bs-font-size(32);
+      margin-top: $BS * 128;
+      margin-bottom: $BS * 64;
+
+      .button {
+        margin-top: $BS * 64;
+      }
+    }
+
+    &__codepenWrapper {
+      width: 100%;
+    }
+
+    &__canvas {
+      width: 100%;
+    }
+
+    &__previousStep,
+    &__nextStep {
+      left: $BS * 40;
+    }
+
+    &__image {
+      width: 100%;
+    }
+
+    &__stepTitle {
+      margin-bottom: $BS * 32;
+    }
+  }
+}
+
+@media #{$BreakpointXS} {
+  .article {
+    &__stepDescription {
+      @include bs-font-size(64);
+      padding: $BS * 80;
+      margin-top: $BS * 256;
+      margin-bottom: $BS * 128;
+    }
+
+    &__description {
+      p {
+        margin-bottom: $BS * 64;
+      }
+    }
+
+    &__canvas {
+      height: 50vh;
+    }
+
+    &__stepTitle {
+      margin-bottom: $BS * 64;
+    }
+  }
+}

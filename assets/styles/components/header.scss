@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: $BS * 1024;
+  margin: 0 auto $BS * 32;
+  padding: $BS * 40 0;
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+@media #{$BreakpointS} {
+  .header {
+    width: 90vw;
+    margin: 0 auto $BS * 64;
+    padding: $BS * 80 0;
+  }
+}

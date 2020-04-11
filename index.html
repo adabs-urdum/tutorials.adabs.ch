@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="Frontend Webdev Tutorials" />
+    <meta name="author" content="Cyrill Lehmann" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <title>tutorials.adabs.ch</title>
+  </head>
+  <link rel="stylesheet" href="./dist/css/styles.min.css?v=3" />
+  <body>
+    <header class="header">
+      <nav class="header__nav">
+        <a id="tutorialButton" class="button" href="/">Tutorials</a>
+        <a
+          class="button"
+          href="https://cyrill-lehmann.ch"
+          target="_blank"
+          rel="noopener"
+          >cyrill-lehmann.ch</a
+        >
+      </nav>
+    </header>
+    <main class="main">
+      <div id="homeView" class="overview">
+        <h1 class="main__title">Tutorials, How To's and other stuff</h1>
+        <div class="tutorials">
+          <div class="tutorials__column">
+            <ul id="tutorialsFilterContainer" class="tutorials__filter"></ul>
+          </div>
+          <ul id="tutorialsContainer" class="tutorials__list"></ul>
+        </div>
+      </div>
+      <article id="article" class="article hidden"></article>
+    </main>
+    <script src="./dist/js/functions.min.js?v=3"></script>
+  </body>
+</html>

@@ -1,0 +1,260 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 200;
+  font-size: #{$BaseRemSize}px;
+  line-height: 120%;
+  color: $Black;
+  background: $YellowLight;
+}
+
+body {
+  @include bs-font-size(18);
+  line-height: 130%;
+  padding-bottom: $BS * 128;
+}
+
+.main {
+  margin: 0 auto;
+  overflow-x: hidden;
+
+  &__title {
+    margin-bottom: $BS * 64;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  line-height: 120%;
+  font-weight: 700;
+}
+
+h1 {
+  @include bs-font-size(72);
+}
+
+h2 {
+  @include bs-font-size(64);
+}
+
+h3 {
+  @include bs-font-size(56);
+}
+
+h4 {
+  @include bs-font-size(48);
+}
+
+h5 {
+  @include bs-font-size(40);
+}
+
+h6 {
+  @include bs-font-size(32);
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  display: inline-block;
+  color: inherit;
+  transition: color 0.3s ease-out;
+
+  &:hover {
+    color: $YellowDark;
+  }
+}
+
+.button {
+  display: inline-block;
+  font-weight: 700;
+  background: $Black;
+  color: $YellowLight;
+  padding: $BS * 18 $BS * 50 $BS * 18;
+  text-transform: uppercase;
+  transition: background 0.3s ease-out;
+  text-decoration: none;
+
+  &:hover {
+    background: $YellowDark;
+    color: $YellowLight;
+  }
+}
+
+button {
+  cursor: pointer;
+  color: inherit;
+  font-family: inherit;
+  background: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  border: none;
+  text-align: inherit;
+}
+
+img,
+canvas {
+  display: block;
+}
+
+.overview {
+  width: $BS * 1024;
+  margin: 0 auto;
+}
+
+.article {
+  width: $BS * 1320;
+  margin: 0 auto;
+}
+
+.overview,
+.article {
+  transform: scale(1) rotate(0deg);
+  opacity: 1;
+  transition: opacity 0.3s ease-out, transform 0.4s ease-out;
+
+  &.fade {
+    opacity: 0;
+    transform: scale(0.9) rotate(-2deg);
+  }
+
+  &.hidden {
+    display: none;
+  }
+}
+
+.code {
+  font-family: "Ubuntu Mono", monospace;
+  @include bs-font-size(13);
+  line-height: 100%;
+  background: $Black;
+  color: $White;
+  padding: $BS * 5;
+  white-space: nowrap;
+
+  &::selection {
+    background-color: $YellowLight;
+  }
+}
+
+.desktop_only {
+  display: block;
+}
+
+.mobile_only {
+  display: none;
+}
+
+@media #{$BreakpointS} {
+  body {
+    @include bs-font-size(36);
+  }
+
+  .overview {
+    width: 90vw;
+  }
+
+  .article {
+    width: 90vw;
+  }
+
+  .button {
+    padding: $BS * 36 $BS * 100 $BS * 36;
+  }
+
+  h1 {
+    @include bs-font-size(144);
+  }
+
+  h2 {
+    @include bs-font-size(128);
+  }
+
+  h3 {
+    @include bs-font-size(112);
+  }
+
+  h4 {
+    @include bs-font-size(96);
+  }
+
+  h5 {
+    @include bs-font-size(80);
+  }
+
+  h6 {
+    @include bs-font-size(64);
+  }
+
+  .main {
+    &__title {
+      margin-bottom: $BS * 128;
+    }
+  }
+
+  .code {
+    padding: $BS * 8 $BS * 10 $BS * 10;
+  }
+
+  .mobile_only {
+    display: block;
+  }
+
+  .desktop_only {
+    display: none;
+  }
+}
+
+@media #{$BreakpointXS} {
+  body {
+    @include bs-font-size(72);
+  }
+
+  h1 {
+    @include bs-font-size(288);
+  }
+
+  h2 {
+    @include bs-font-size(256);
+  }
+
+  h3 {
+    @include bs-font-size(224);
+  }
+
+  h4 {
+    @include bs-font-size(192);
+  }
+
+  h5 {
+    @include bs-font-size(160);
+  }
+
+  h6 {
+    @include bs-font-size(128);
+  }
+
+  .code {
+    padding: $BS * 16 $BS * 20 $BS * 20;
+  }
+}

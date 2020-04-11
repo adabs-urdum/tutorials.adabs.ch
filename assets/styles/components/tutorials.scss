@@ -1,0 +1,224 @@
+.tutorials {
+  display: flex;
+  justify-content: space-between;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    width: $BS * 800;
+  }
+
+  &__filter {
+    width: $BS * 146;
+    border: $BS $YellowDark solid;
+  }
+
+  &__codepen {
+    position: relative;
+    display: inline-block;
+    width: auto;
+    background-color: $Black;
+  }
+
+  &__radio {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1px;
+    width: 1px;
+    visibility: hidden;
+    pointer-events: none;
+
+    & + span {
+      width: 100%;
+      text-align: center;
+      padding: $BS * 10 $BS * 10 $BS * 12;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    &:checked {
+      & + span {
+        background: $Black;
+        color: $YellowLight;
+      }
+    }
+  }
+
+  &__title {
+    line-height: 100%;
+    margin: $BS * 16 0;
+  }
+
+  &__tagList {
+    display: flex;
+    @include bs-font-size(12);
+    line-height: 100%;
+    font-weight: 700;
+  }
+
+  &__tagListEntry {
+    background: $Black;
+    color: $YellowLight;
+    padding: $BS * 6;
+    margin-right: $BS * 8;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__tag {
+    display: flex;
+  }
+
+  &__tagLabel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    cursor: pointer;
+    background: transparent;
+    transition: background-color 0.3s ease-out;
+
+    &:hover {
+      background: $YellowDark;
+    }
+  }
+
+  &__listEntry {
+    margin-bottom: $BS * 32;
+  }
+
+  &__tutorial {
+    display: flex;
+    border: solid $BS transparent;
+    transition: border 0.5s ease-out, background-color 0.3s ease-in-out,
+      margin-bottom 0.3s ease-in-out, max-height 0.5s linear,
+      opacity 0.3s ease-out;
+    margin-bottom: $BS * 32;
+    max-height: 50vh;
+    opacity: 1;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &:hover {
+      border: solid $BS $YellowDark;
+      background: $YellowDark;
+    }
+
+    &.hidden {
+      opacity: 0;
+      max-height: 0;
+      margin-bottom: 0;
+      overflow: hidden;
+    }
+  }
+
+  &__date {
+    line-height: 100%;
+    margin-bottom: $BS * 8;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: $BS * 16;
+    flex: 1;
+  }
+
+  &__canvas {
+    width: $BS * 300;
+  }
+
+  .cp_embed_wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      transform: scale(1.05);
+    }
+  }
+}
+
+@media #{$BreakpointS} {
+  .tutorials {
+    &__filter {
+      width: auto;
+    }
+
+    &__list {
+      width: auto;
+      margin-left: $BS * 64;
+    }
+
+    &__tagListEntry {
+      padding: $BS * 12;
+      margin-right: $BS * 16;
+    }
+
+    &__tagList {
+      @include bs-font-size(24);
+    }
+
+    &__codepen {
+      display: none;
+    }
+
+    &__radio {
+      & + span {
+        padding: $BS * 20 $BS * 20 $BS * 24;
+      }
+    }
+
+    &__text {
+      padding: $BS * 32;
+    }
+
+    &__date {
+      margin-bottom: $BS * 16;
+    }
+
+    &__tagList {
+      @include bs-font-size(24);
+    }
+
+    &__tagListEntry {
+      padding: $BS * 12;
+      margin-right: $BS * 16;
+    }
+  }
+}
+
+@media #{$BreakpointXS} {
+  .tutorials {
+    flex-direction: column;
+
+    &__tagList {
+      @include bs-font-size(48);
+    }
+
+    &__tagListEntry {
+      padding: $BS * 24;
+      margin-right: $BS * 32;
+    }
+
+    &__text {
+      padding: $BS * 64;
+    }
+
+    &__column {
+      margin-bottom: $BS * 128;
+    }
+  }
+}
